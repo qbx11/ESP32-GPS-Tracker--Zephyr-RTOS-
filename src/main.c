@@ -45,7 +45,6 @@ void gps_processing_thread(void *p1, void *p2, void *p3)
     char line[MSG_SIZE];
     struct minmea_sentence_gga frame;
 
-    printk("Start watku GPS...\n");
 
     while (1) {
         //Block until a sentence arrives
