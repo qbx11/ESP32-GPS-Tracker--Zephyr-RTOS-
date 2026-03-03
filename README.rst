@@ -14,8 +14,8 @@ A real-time GPS NMEA parser built for the **ESP32** using **Zephyr RTOS** (v3.7.
 | :--- | :--- | :--- |
 | VCC | 3.3V or 5V | Depending on your GPS module requirements |
 | GND | GND | Common ground |
-| TX | RX Pin | E.g., GPIO 16 (Check `app.overlay`) |
-| RX | TX Pin | E.g., GPIO 17 (Check `app.overlay`) |
+| TX | RX Pin | E.g., GPIO 16 |
+| RX | TX Pin | E.g., GPIO 17  |
 
 ## Software & Dependencies
 * **Zephyr RTOS:** Version 3.7.0
