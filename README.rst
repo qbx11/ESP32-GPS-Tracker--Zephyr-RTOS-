@@ -1,33 +1,46 @@
-.. _hello_world:
+# ESP32 GPS Tracker (Zephyr RTOS)
 
-Hello World
-###########
+A real-time GPS NMEA parser built for the **ESP32** using **Zephyr RTOS** (v3.7.0). 
 
-Overview
-********
 
-A simple sample that can be used with any :ref:`supported board <boards>` and
-prints "Hello World" to the console.
+## Hardware Requirements
+* **Board:** ESP32-DevKitC WROOM (`esp32_devkitc_wroom`)
+* **GPS Module:** GPS GY-NEO6MV2 with antenna (https://sklep.msalamon.pl/produkt/modul-gps-gy-neo6mv2-niebieski/)
 
-Building and Running
-********************
 
-This application can be built and executed on QEMU as follows:
+### Pinout
 
-.. zephyr-app-commands::
-   :zephyr-app: samples/hello_world
-   :host-os: unix
-   :board: qemu_x86
-   :goals: run
-   :compact:
+| GPS Module | ESP32 Pin | Note |
+| :--- | :--- | :--- |
+| VCC | 3.3V or 5V | Depending on your GPS module requirements |
+| GND | GND | Common ground |
+| TX | RX Pin | E.g., GPIO 16 (Check `app.overlay`) |
+| RX | TX Pin | E.g., GPIO 17 (Check `app.overlay`) |
 
-To build for another board, change "qemu_x86" above to that board's name.
+## Software & Dependencies
+* **Zephyr RTOS:** Version 3.7.0
+* **Development Environment:** VS Code with Dev Containers (Docker)
+* **Libraries:** `minmea` (included in `src/`)
 
-Sample Output
-=============
+## How to Build and Flash
 
-.. code-block:: console
+This project uses Zephyr's `west` meta-tool. Open your terminal inside the Dev Container and run:
 
-    Hello World! x86
+**1. Build and flash the project:**
+```bash
+west build -p always -b esp32_devkitc_wroom
+west flash
 
-Exit QEMU by pressing :kbd:`CTRL+A` :kbd:`x`.
+**3. Monitor: **
+```bash
+pyserial-miniterm /dev/ttyUSB0 115200
+(CTRL + ] to exit)
+
+**4. Output:**
+```bash
+Latitude:  51.123456
+Longitude: 17.123456
+Satellites:  7
+Altitude:  125.50 m
+Fix quality:    1
+--------------------------------
