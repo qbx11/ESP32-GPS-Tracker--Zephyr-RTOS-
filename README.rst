@@ -1,12 +1,15 @@
 # ESP32 GPS Tracker (Zephyr RTOS)
 
-A real-time GPS NMEA parser built for the **ESP32** using **Zephyr RTOS** (v3.7.0). 
+A real-time GPS NMEA parser built for the **ESP32** using **Zephyr RTOS** (v3.7.0).
 
+---
 
 ## Hardware Requirements
-* **Board:** ESP32-DevKitC WROOM (`esp32_devkitc_wroom`)
-* **GPS Module:** GPS GY-NEO6MV2 with antenna (https://sklep.msalamon.pl/produkt/modul-gps-gy-neo6mv2-niebieski/)
 
+| Component | Details |
+| :--- | :--- |
+| Board | ESP32-DevKitC WROOM (`esp32_devkitc_wroom`) |
+| GPS Module | GPS GY-NEO6MV2 with antenna ([sklep.msalamon.pl](https://sklep.msalamon.pl/produkt/modul-gps-gy-neo6mv2-niebieski/)) |
 
 ### Pinout
 
@@ -15,32 +18,49 @@ A real-time GPS NMEA parser built for the **ESP32** using **Zephyr RTOS** (v3.7.
 | VCC | 3.3V or 5V | Depending on your GPS module requirements |
 | GND | GND | Common ground |
 | TX | RX Pin | E.g., GPIO 16 |
-| RX | TX Pin | E.g., GPIO 17  |
+| RX | TX Pin | E.g., GPIO 17 |
+
+---
 
 ## Software & Dependencies
-* **Zephyr RTOS:** Version 3.7.0
-* **Development Environment:** VS Code with Dev Containers (Docker)
-* **Libraries:** `minmea` (included in `src/`)
 
-## How to Build and Flash
+| | Version / Details |
+| :--- | :--- |
+| Zephyr RTOS | 3.7.0 |
+| Development Environment | VS Code with Dev Containers (Docker) |
+| Libraries | `minmea` (included in `src/`) |
+
+---
+
+## Build and Flash
 
 This project uses Zephyr's `west` meta-tool. Open your terminal inside the Dev Container and run:
 
-**1. Build and flash the project:**
+**1. Build the project:**
 ```bash
 west build -p always -b esp32_devkitc_wroom
-west flash
+```
 
-**3. Monitor: **
+**2. Flash the project:**
+```bash
+west flash
+```
+
+**3. Monitor serial output:**
 ```bash
 pyserial-miniterm /dev/ttyUSB0 115200
-(CTRL + ] to exit)
+```
+> Press `CTRL + ]` to exit.
 
-**4. Output:**
-```bash
-Latitude:  51.123456
-Longitude: 17.123456
+---
+
+## Expected Output
+
+```
+Latitude:    51.123456
+Longitude:   17.123456
 Satellites:  7
-Altitude:  125.50 m
-Fix quality:    1
+Altitude:    125.50 m
+Fix quality: 1
 --------------------------------
+```
