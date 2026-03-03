@@ -13,12 +13,12 @@ A real-time GPS NMEA parser built for the **ESP32** using **Zephyr RTOS** (v3.7.
 
 ### Pinout
 
-| GPS Module | ESP32 Pin | Note |
-| :--- | :--- | :--- |
-| VCC | 3.3V or 5V | Depending on your GPS module requirements |
-| GND | GND | Common ground |
-| TX | RX Pin | E.g., GPIO 16 |
-| RX | TX Pin | E.g., GPIO 17 |
+| GPS Module | ESP32 Pin  
+| :---       | :---       
+| VCC        | 3.3V or 5V 
+| GND        | GND        
+| TX         | RX Pin     
+| RX         | TX Pin     
 
 ---
 
@@ -34,20 +34,20 @@ A real-time GPS NMEA parser built for the **ESP32** using **Zephyr RTOS** (v3.7.
 
 ## Build and Flash
 
-This project uses Zephyr's `west` meta-tool. Open your terminal inside the Dev Container and run:
+This project uses Zephyr's `west`.
 
 **1. Build the project:**
-```bash
+```
 west build -p always -b esp32_devkitc_wroom
 ```
 
 **2. Flash the project:**
-```bash
+```
 west flash
 ```
 
 **3. Monitor serial output:**
-```bash
+```
 pyserial-miniterm /dev/ttyUSB0 115200
 ```
 > Press `CTRL + ]` to exit.
