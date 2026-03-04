@@ -5,7 +5,7 @@ A real-time GPS NMEA parser built for the **ESP32** using **Zephyr RTOS** (v3.7.
 This project is the first component of a larger GPS-based orienteering tracking system.
 Instead of traditional checkpoint chips used in orienteering races, each runner carries a dedicated GPS device that continuously records their position during the event. After finishing the race, the device will transmit recorded data via Wi-Fi to a central administrator system.
 
-The full system (currently under development ) will provide:
+The full system (currently under development as part of Software Development Platforms course) will provide:
 - Automatic route verification
 - Detection of missed checkpoints
 - Centralized race data storage
